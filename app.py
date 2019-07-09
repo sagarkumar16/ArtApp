@@ -17,7 +17,10 @@ class Users(db.Model):
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	if request.method == 'POST':
+		return "Hola!!"
+	else: 
+		return render_template('index.html')
 
 if __name__ == '__main__':
 	app.run(debug = True)
