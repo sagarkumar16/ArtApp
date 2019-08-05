@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -15,7 +15,7 @@ class Users(db.Model):
 	def __repr__(self):
 		return '<Task %r>' % self.id
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
 		return "Hola!!"
